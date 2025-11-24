@@ -1,0 +1,576 @@
+/* @import "tailwindcss";
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: Arial, Helvetica, sans-serif;
+} */
+
+
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+/* .hide-scrollbar::-webkit-scrollbar {
+  display: none;
+} */
+
+/* Hide scrollbar for IE, Edge and Firefox */
+/* .hide-scrollbar {
+  -ms-overflow-style: none;  
+  scrollbar-width: none; 
+} */
+
+
+
+
+
+
+
+
+
+
+
+
+/* ===============================
+   Imports
+   =============================== */
+@import 'tailwindcss';
+
+/* ===============================
+   Dark Mode Custom Variant
+   =============================== */
+@custom-variant dark (&:is(.dark *));
+
+/* ===============================
+   Inline Theme Variables
+   =============================== */
+@theme inline {
+  --color-background: var(--background);
+  --color-background-secondary: var(--background-secondary);
+  --color-background-tertiary: var(--background-tertiary);
+  --color-foreground: var(--foreground);
+  --color-foreground-secondary: var(--foreground-secondary);
+  --color-foreground-muted: var(--foreground-muted);
+
+  --color-card: var(--card);
+  --color-card-secondary: var(--card-secondary);
+  --color-card-foreground: var(--card-foreground);
+
+  --color-primary: var(--primary);
+  --color-primary-dark: var(--primary-dark);
+  --color-primary-light: var(--primary-light);
+  --color-primary-foreground: var(--primary-foreground);
+
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent-glow: var(--accent-glow);
+
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-success: var(--success);
+  --color-warning: var(--warning);
+
+  --color-border: var(--border);
+  --color-border-light: var(--border-light);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+
+  --color-sidebar-ring: var(--sidebar-ring);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar: var(--sidebar);
+
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+/* ===============================
+   Global Variables
+   =============================== */
+:root {
+  --radius: 0.75rem;
+
+  /* ===============================
+     LIGHT THEME COLORS
+     =============================== */
+  
+  /* Background Colors */
+  --background: #f0f2f5; /* Light gray background outside cards */
+  --background-secondary: #ffffff; /* White cards */
+  --background-tertiary: #f5f7f9; /* Slightly darker gray */
+
+  /* Text Colors */
+  --foreground: #212529; /* Dark text for headers */
+  --foreground-secondary: #495057; /* Medium gray text */
+  --foreground-muted: #6c757d; /* Light gray text */
+
+  /* Card Colors */
+  --card: #ffffff; /* White cards */
+  --card-secondary: #f8f9fa; /* Light card background */
+  --card-foreground: #212529; /* Dark text on cards */
+
+  /* Primary/Brand Colors */
+  --primary: #3b82f6; /* Blue-500 */
+  --primary-dark: #2563eb; /* Blue-600 */
+  --primary-light: #60a5fa; /* Blue-400 */
+  --primary-foreground: #ffffff; /* White text on blue */
+
+  /* Secondary Colors */
+  --secondary: #f1f3f5; /* Light gray */
+  --secondary-foreground: #495057; /* Medium gray text */
+
+  /* Accent Colors */
+  --accent: #3b82f6; /* Same as primary */
+  --accent-foreground: #ffffff;
+  --accent-glow: rgba(59, 130, 246, 0.3);
+
+  /* Status Colors */
+  --destructive: #dc3545; /* Red for destructive actions */
+  --destructive-foreground: #ffffff;
+  --success: #28a745; /* Green for success */
+  --warning: #ffc107; /* Yellow for warnings */
+
+  /* Interactive Colors */
+  --border: #dee2e6; /* Light gray borders */
+  --border-light: #e9ecef; /* Even lighter borders */
+  --input: #ffffff; /* White input backgrounds */
+  --ring: #3b82f6; /* Blue focus ring */
+
+  /* Popover/Muted Colors */
+  --popover: #ffffff;
+  --popover-foreground: #212529;
+  --muted: #f8f9fa;
+  --muted-foreground: #6c757d;
+
+  /* Chart Colors */
+  --chart-1: #3b82f6; /* Blue */
+  --chart-2: #10b981; /* Green */
+  --chart-3: #f59e0b; /* Amber */
+  --chart-4: #8b5cf6; /* Purple */
+  --chart-5: #0ea5e9; /* Cyan */
+
+  /* Sidebar Colors */
+  --sidebar: #ffffff;
+  --sidebar-foreground: #212529;
+  --sidebar-primary: #3b82f6;
+  --sidebar-primary-foreground: #ffffff;
+  --sidebar-accent: #3b82f6;
+  --sidebar-accent-foreground: #ffffff;
+  --sidebar-border: #dee2e6;
+  --sidebar-ring: #3b82f6;
+
+  /* ===============================
+     Helper RGB Variables (for opacity utilities)
+     =============================== */
+  --primary-rgb: 59, 130, 246;
+  --primary-dark-rgb: 37, 99, 235;
+  --primary-light-rgb: 96, 165, 250;
+  --accent-rgb: 59, 130, 246;
+  --destructive-rgb: 220, 53, 69;
+  --destructive-foreground-rgb: 255, 255, 255;
+  --success-rgb: 40, 167, 69;
+  --warning-rgb: 255, 193, 7;
+  --border-rgb: 222, 226, 230;
+  --background-rgb: 240, 242, 245;
+  --card-rgb: 255, 255, 255;
+  --foreground-rgb: 33, 37, 41;
+  --foreground-muted-rgb: 108, 117, 125;
+}
+
+/* ===============================
+   DARK THEME COLORS
+   =============================== */
+.dark {
+  /* Background Colors */
+  --background: #232e42; /* Dark blue-gray background outside cards */
+  --background-secondary: #161b22; /* Dark cards */
+  --background-tertiary: #21262d; /* Slightly lighter dark */
+
+  /* Text Colors */
+  --foreground: #f8fafc; /* Light text for headers */
+  --foreground-secondary: #cbd5e1; /* Medium light text */
+  --foreground-muted: #94a3b8; /* Light gray text */
+
+  /* Card Colors */
+  --card: #112032; /* Dark card background */
+  --card-secondary: #21262d;
+  --card-foreground: #f8fafc;
+
+  /* Primary/Brand Colors */
+  --primary: #3b82f6; /* Same blue */
+  --primary-dark: #2563eb;
+  --primary-light: #60a5fa;
+  --primary-foreground: #ffffff;
+
+  /* Secondary Colors */
+  --secondary: #1e293b;
+  --secondary-foreground: #cbd5e1;
+
+  /* Accent Colors */
+  --accent: #3b82f6;
+  --accent-foreground: #ffffff;
+  --accent-glow: rgba(59, 130, 246, 0.3);
+
+  /* Status Colors */
+  --destructive: #ef4444;
+  --destructive-foreground: #ffffff;
+  --success: #22c55e;
+  --warning: #f59e0b;
+
+  /* Interactive Colors */
+  --border: #334155;
+  --border-light: #475569;
+  --input: #1e293b;
+  --ring: #3b82f6;
+
+  /* Popover/Muted Colors */
+  --popover: #161b22;
+  --popover-foreground: #f8fafc;
+  --muted: #1e293b;
+  --muted-foreground: #94a3b8;
+
+  /* Chart Colors */
+  --chart-1: #3b82f6; /* Blue */
+  --chart-2: #22c55e; /* Green */
+  --chart-3: #f59e0b; /* Amber */
+  --chart-4: #8b5cf6; /* Purple */
+  --chart-5: #0ea5e9; /* Cyan */
+
+  /* Sidebar Colors */
+  --sidebar: #161b22;
+  --sidebar-foreground: #f8fafc;
+  --sidebar-primary: #3b82f6;
+  --sidebar-primary-foreground: #ffffff;
+  --sidebar-accent: #3b82f6;
+  --sidebar-accent-foreground: #ffffff;
+  --sidebar-border: #334155;
+  --sidebar-ring: #3b82f6;
+
+  /* Gradients */
+  --gradient-primary: linear-gradient(135deg, #3b82f6, #2563eb);
+  --gradient-hero: linear-gradient(135deg, #0d1117 0%, #161b22 100%);
+  --gradient-card: linear-gradient(135deg, #161b22 0%, #21262d 100%);
+  --gradient-glow: radial-gradient(circle at center, rgba(59, 130, 246, 0.2) 0%, transparent 70%);
+
+  /* Shadows */
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.4);
+  --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.5);
+  --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.6);
+  --shadow-glow: 0 0 20px rgba(59, 130, 246, 0.3);
+  --shadow-glow-strong: 0 0 40px rgba(59, 130, 246, 0.4);
+
+  /* ===============================
+     Dark Helper RGB Variables (for opacity utilities)
+     =============================== */
+  --primary-rgb: 59, 130, 246;
+  --primary-dark-rgb: 37, 99, 235;
+  --primary-light-rgb: 96, 165, 250;
+  --accent-rgb: 59, 130, 246;
+  --destructive-rgb: 239, 68, 68;
+  --destructive-foreground-rgb: 255, 255, 255;
+  --success-rgb: 34, 197, 94;
+  --border-rgb: 51, 65, 85;
+  --background-rgb: 35, 46, 66;
+  --card-rgb: 17, 32, 50;
+  --foreground-rgb: 248, 250, 252;
+  --foreground-muted-rgb: 148, 163, 184;
+}
+
+/* ===============================
+   Base Styles
+   =============================== */
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: var(--font-sans), Arial, Helvetica, sans-serif;
+    line-height: 1.6;
+  }
+
+  /* Custom scrollbar for webkit browsers */
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: var(--background-secondary);
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: var(--border);
+    border-radius: 4px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--foreground-muted);
+  }
+}
+
+/* ===============================
+   Component Styles
+   =============================== */
+
+/* Navigation/Sidebar active state */
+.activemenu {
+  color: rgb(59, 130, 246);
+  font-weight: 600;
+  background-color: rgba(59, 130, 246, 0.1);
+  border-radius: var(--radius);
+}
+
+/* Story circles styling */
+.story-ring {
+  border: 2px solid transparent;
+  background: linear-gradient(45deg, rgb(59, 130, 246), rgb(168, 85, 247)) border-box;
+  border-radius: 50%;
+  mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
+  mask-composite: exclude;
+}
+
+/* Post card styling */
+.post-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+/* ===============================
+   Utility Classes
+   =============================== */
+
+/* ---------- Background helpers ---------- */
+.bg-background { background-color: var(--background); }
+.bg-background-secondary { background-color: var(--background-secondary); }
+.bg-background-tertiary { background-color: var(--background-tertiary); }
+.bg-card { background-color: var(--card); }
+
+/* Primary backgrounds */
+.bg-primary { background-color: rgb(var(--primary-rgb)); }
+.bg-primary\/10 { background-color: rgba(var(--primary-rgb), 0.10); }
+.bg-primary\/20 { background-color: rgba(var(--primary-rgb), 0.20); }
+.bg-primary\/50 { background-color: rgba(var(--primary-rgb), 0.50); }
+
+/* Accent backgrounds */
+.bg-accent { background-color: rgb(var(--accent-rgb)); }
+.bg-accent\/10 { background-color: rgba(var(--accent-rgb), 0.10); }
+
+/* Status backgrounds */
+.bg-success { background-color: rgb(var(--success-rgb)); }
+.bg-success\/10 { background-color: rgba(var(--success-rgb), 0.10); }
+.bg-destructive { background-color: rgb(var(--destructive-rgb)); }
+.bg-destructive\/10 { background-color: rgba(var(--destructive-rgb), 0.10); }
+.bg-warning { background-color: rgb(var(--warning-rgb)); }
+.bg-warning\/10 { background-color: rgba(var(--warning-rgb), 0.10); }
+
+/* ---------- Text color helpers ---------- */
+.text-foreground { color: var(--foreground); }
+.text-foreground-muted { color: var(--foreground-muted); }
+.text-foreground-secondary { color: var(--foreground-secondary); }
+
+.text-primary { color: rgb(var(--primary-rgb)); }
+.text-primary-foreground { color: var(--primary-foreground); }
+.text-accent { color: rgb(var(--accent-rgb)); }
+
+.text-success { color: rgb(var(--success-rgb)); }
+.text-destructive { color: rgb(var(--destructive-rgb)); }
+.text-warning { color: rgb(var(--warning-rgb)); }
+
+/* ---------- Border helpers ---------- */
+.border { border-color: var(--border); }
+.border-light { border-color: var(--border-light); }
+
+.border-primary { border-color: rgb(var(--primary-rgb)); }
+.border-success { border-color: rgb(var(--success-rgb)); }
+.border-success\/20 { border-color: rgba(var(--success-rgb), 0.20); }
+.border-destructive { border-color: rgb(var(--destructive-rgb)); }
+.border-destructive\/20 { border-color: rgba(var(--destructive-rgb), 0.20); }
+
+/* ---------- Ring / outline ---------- */
+.ring-primary { box-shadow: 0 0 0 3px rgba(var(--primary-rgb), 0.1); }
+.ring-accent { box-shadow: 0 0 0 3px rgba(var(--accent-rgb), 0.1); }
+
+/* ---------- Small badges / pill helpers ---------- */
+.pill { 
+  display: inline-flex; 
+  align-items: center; 
+  gap: 0.5rem; 
+  padding: 0.25rem 0.75rem; 
+  border-radius: 9999px; 
+  font-size: 0.75rem; 
+  font-weight: 600; 
+}
+.pill-primary { background-color: rgba(var(--primary-rgb), 0.10); color: rgb(var(--primary-rgb)); }
+.pill-success { background-color: rgba(var(--success-rgb), 0.10); color: rgb(var(--success-rgb)); }
+.pill-destructive { background-color: rgba(var(--destructive-rgb), 0.10); color: rgb(var(--destructive-rgb)); }
+
+/* ---------- Gradient utilities ---------- */
+.bg-gradient-primary { background: linear-gradient(135deg, rgb(var(--primary-light-rgb)), rgb(var(--primary-dark-rgb))); color: var(--primary-foreground); }
+.bg-gradient-accent { background: linear-gradient(135deg, rgb(var(--accent-rgb)), rgb(var(--primary-rgb))); color: var(--accent-foreground); }
+.bg-gradient-success { background: linear-gradient(135deg, rgba(var(--success-rgb),1), rgba(var(--primary-light-rgb),1)); color: var(--foreground); }
+.bg-gradient-warning { background: linear-gradient(135deg, rgba(var(--warning-rgb),1), rgba(var(--primary-rgb),1)); color: var(--foreground); }
+.bg-gradient-danger { background: linear-gradient(135deg, rgb(var(--destructive-rgb)), var(--destructive-foreground)); color: var(--destructive-foreground); }
+
+.bg-gradient-hero { background: var(--gradient-hero); }
+.bg-gradient-card { background: var(--gradient-card); }
+.bg-gradient-glow { background: var(--gradient-glow); }
+
+/* ---------- Text gradient ---------- */
+.text-gradient {
+  background: linear-gradient(90deg, rgb(var(--primary-rgb)), rgb(var(--accent-rgb)));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* ---------- Utility combos ---------- */
+.ui-card { 
+  background-color: var(--card); 
+  color: var(--card-foreground); 
+  border: 1px solid var(--border); 
+  border-radius: var(--radius); 
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1); 
+}
+.ui-muted { 
+  background-color: var(--muted); 
+  color: var(--muted-foreground); 
+}
+
+/* ---------- Common sizes ---------- */
+.size-sm { padding: 0.5rem; }
+.size-md { padding: 1rem; }
+.size-lg { padding: 1.5rem; }
+
+/* ===============================
+   Scrollbar Utilities
+   =============================== */
+.hide-scrollbar::-webkit-scrollbar { display: none; }
+.hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+/* ===============================
+   Animation Utilities
+   =============================== */
+.transition-smooth { transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); }
+.transition-colors-smooth { 
+  transition: color 0.3s cubic-bezier(0.4, 0, 0.2, 1), 
+              background-color 0.3s cubic-bezier(0.4, 0, 0.2, 1), 
+              border-color 0.3s cubic-bezier(0.4, 0, 0.2, 1); 
+}
+
+/* ===============================
+   Custom Component Styles
+   =============================== */
+
+/* Input styles */
+.input-field {
+  background-color: var(--input);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 0.5rem 0.75rem;
+  width: 100%;
+  color: var(--foreground);
+}
+
+.input-field:focus {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(var(--primary-rgb), 0.1);
+}
+
+.input-field::placeholder {
+  color: var(--foreground-muted);
+}
+
+/* Card hover effects */
+.card-hover {
+  transition: all 0.3s ease;
+}
+
+.card-hover:hover {
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transform: translateY(-2px);
+}
+
+/* Avatar sizes */
+.avatar-sm { width: 2rem; height: 2rem; }
+.avatar-md { width: 3rem; height: 3rem; }
+.avatar-lg { width: 4rem; height: 4rem; }
+
+/* Status indicators */
+.status-online { background-color: rgb(var(--success-rgb)); }
+.status-offline { background-color: var(--foreground-muted); }
+.status-away { background-color: rgb(var(--warning-rgb)); }
+
+/* Badge variants */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.25rem 0.5rem;
+  border-radius: 9999px;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+.badge-primary { 
+  background-color: rgba(var(--primary-rgb), 0.10); 
+  color: rgb(var(--primary-rgb)); 
+}
+
+.badge-success { 
+  background-color: rgba(var(--success-rgb), 0.10); 
+  color: rgb(var(--success-rgb)); 
+}
+
+.badge-destructive { 
+  background-color: rgba(var(--destructive-rgb), 0.10); 
+  color: rgb(var(--destructive-rgb)); 
+}
+
+.badge-warning { 
+  background-color: rgba(var(--warning-rgb), 0.10); 
+  color: rgb(var(--warning-rgb)); 
+}
